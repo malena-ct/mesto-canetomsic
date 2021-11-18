@@ -1,4 +1,5 @@
 import React from 'react'
+import List from '../components/List'
 
 let styles = {
     color: '#0000ff',
@@ -16,6 +17,7 @@ const ItemListContainer = ({greeting}) => {
     return(
         <div style={styles}>
             <h2>{greeting}</h2>
+            <List/>
         </div>
     )
 }
