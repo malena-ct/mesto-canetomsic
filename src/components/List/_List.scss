@@ -1,0 +1,12 @@
+.product-list{
+    &--highlighted{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: scroll;
+
+        max-width: 80%;
+        left: 0;
+        position: relative;
+    }
+}

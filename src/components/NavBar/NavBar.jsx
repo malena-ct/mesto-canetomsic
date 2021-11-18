@@ -1,7 +1,7 @@
 import React from 'react'
-import CartWidget from './CartWidget'
-import Logo from './Logo'
-import MenuList from './MenuList'
+import CartWidget from '../CartWidget/CartWidget'
+import Logo from '../Logo/Logo'
+import MenuList from '../MenuList/MenuList'
 
 export default function NavBar({item}) {
     return (
