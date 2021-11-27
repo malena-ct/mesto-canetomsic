@@ -1,9 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-export default function ListItem({link,item}) {
+export default function ListItem({item}) {
     return (
         <li className='nav-item'>
-            <a className="nav-link" href={link}><p> {item}</p></a>
+            <NavLink className="nav-link" to={`/category/${item}`}>
+                <p> {item}</p>
+            </NavLink>
         </li>
     )
 }
