@@ -1,8 +1,11 @@
 @import "./scss/global";
 @import "./scss/fonts";
 
+@import "./container/ItemListContainer";
+@import "./container/ItemDetailContainer";
+
 @import "./components/Item/Item";
-@import "./components/List/List";
 @import "./components/ListItem/ListItem";
 @import "./components/MenuList/MenuList";
 @import "./components/NavBar/NavBar";
+@import "./components/ItemDetail/ItemDetail";

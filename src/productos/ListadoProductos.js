@@ -6,7 +6,7 @@
         description: 'Chita hace su primer concierto en la ciudad de Buenos Aires desde fines de 2019 con este show en Ciudad Cultural Konex.', 
         price: 1300, 
         pictureUrl:'/img/products/prod-1.jpeg',
-        category: 'recitales'
+        category: 'Recitales'
         },
         {
         id: 2, 
@@ -14,7 +14,7 @@
         description: 'Esta publicación ofrece una contextualización en profundidad de las obras reunidas en la exposición desde una variedad de perspectivas que tienen en cuenta la polifonía y convivencia de esos mundos artísticos.', 
         price: 4730, 
         pictureUrl:'/img/products/prod-2.jpeg',
-        category: 'libros'
+        category: 'Libros'
         },
         {
         id: 3, 

@@ -1,8 +1,9 @@
 $brand-color-primary: #0000ff;
+$brand-font: 'Compagnon', sans-serif;
 
 
 body{
-    font-family: 'Compagnon', sans-serif;
+    font-family: $brand-font;
 }
 
 *{
@@ -11,4 +12,11 @@ body{
 
 .container{
     padding-top: 90px;
+    margin: 0 20px;
+}
+
+.loader-text{
+    color: $brand-color-primary;
+    font-size: 32px;
+    text-align: center;
 }
