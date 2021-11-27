@@ -14,7 +14,7 @@ export default function Item({item,key}) {
             <h3 className="product-item__name">{item.title}</h3>
             <p className="product-item__description">{item.description}</p>
             <span className="product-item__price">{'$'+item.price}</span>
-            <Link className="product-item__link" to={`/detalle/${item.id}`}>
+            <Link className="product-item__link" to={`/item/${item.id}`}>
                 Ver detalles
             </Link>
         </div>

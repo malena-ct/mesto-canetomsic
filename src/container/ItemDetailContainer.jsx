@@ -9,12 +9,12 @@ const ItemDetailContainer = () => {
     const [itemProducto, setItemProducto]= useState({});
     const [loading, setLoading] = useState(true);
 
-    const { itemIdParams } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         const promiseItemProducto = new Promise((resolved, rejected) => {
             setTimeout(() => {
-                resolved(ListadoProductos.find(producto => producto.id == itemIdParams))
+                resolved(ListadoProductos.find(producto => producto.id == id))
             }, 2000);
             
         })
@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
             console.log('Producto no encontrado')
         })
         .finally(() => setLoading(false))
-    }, [itemIdParams])
+    }, [id])
 
     
 

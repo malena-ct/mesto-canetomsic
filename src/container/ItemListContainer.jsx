@@ -1,6 +1,7 @@
 import React from 'react'
 import Item from '../components/Item/Item';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { ListadoProductos } from '../productos/ListadoProductos';
 
 
@@ -20,11 +21,12 @@ const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true);
 
+    const { categoryId } = useParams();
 
     useEffect(() => {
         const getFetch = new Promise((aceptado, rechazado) => {
             setTimeout(() => {
-                aceptado(ListadoProductos)
+                aceptado(ListadoProductos.filter(prod => prod.category == categoryId ))
             }, 2000);
     
         })
@@ -36,7 +38,7 @@ const ItemListContainer = () => {
             console.log('Error')
         })
         .finally(() => setLoading(false))
-    }, [])
+    }, [categoryId])
     
 
     return(
