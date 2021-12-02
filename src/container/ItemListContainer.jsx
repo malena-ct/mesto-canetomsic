@@ -24,9 +24,14 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(() => {
+        setLoading(true)
         const getFetch = new Promise((aceptado, rechazado) => {
             setTimeout(() => {
-                aceptado(ListadoProductos.filter(prod => prod.category == categoryId ))
+                if(categoryId){
+                    aceptado(ListadoProductos.filter(prod => prod.category == categoryId ))
+                } else {
+                    aceptado(ListadoProductos)
+                }
             }, 2000);
     
         })
