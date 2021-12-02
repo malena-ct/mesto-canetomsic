@@ -9,7 +9,6 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        
         <Routes>
           <Route exact path="/" element={<ItemListContainer/>} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
