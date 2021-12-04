@@ -30,9 +30,11 @@ const ItemListContainer = () => {
                 if(categoryId){
                     aceptado(ListadoProductos.filter(prod => prod.category == categoryId ))
                 } else {
-                    aceptado(ListadoProductos)
+                    aceptado(ListadoProductos.slice(0,5))
+                    //aceptado(ListadoProductos.slice(-5).reverse()) mostraría los últimos 5, en orden ascendente
+                    //como para que tome los productos "más nuevos"
                 }
-            }, 2000);
+            }, 100);
     
         })
 
