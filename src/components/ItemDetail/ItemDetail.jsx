@@ -6,7 +6,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({item}) => {
     //contexto
-    const { addItem, clear } = useCartContext()
+    const { addItem, clear, removeItem } = useCartContext()
 
     //estado contador
     const [count, setCount] = useState(1)
@@ -37,12 +37,13 @@ const ItemDetail = ({item}) => {
                             button === 'agregar' ?
                             <ItemCount item={item} itemCounter={count} setItemCounter={setCount} addFunction={onAdd} />
                             :
-                            <button><Link to="/Cart">Terminar Compra</Link></button>
+                            <><button className="product-detail__add"><Link to="/Cart">Terminar Compra</Link></button><button onClick={() => removeItem(item.id)} className="product-detail__add">Quitar del carrito</button></>
                             
                         }
                         
                         {/* <button onClick={() => onAdd(item,3)} className="product-detail__add">Agregar al carrito</button> */}
                         <button onClick={() => clear()} className="product-detail__add">Vaciar carrito</button>
+
                     </div>
                 </div>
         </div>

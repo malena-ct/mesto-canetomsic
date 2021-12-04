@@ -15,7 +15,7 @@ function ItemCount({countNumber,item,addFunction, itemCounter,setItemCounter}) {
             {countNumber=itemCounter}
             <button onClick={addCounter}>+</button>
 
-            <button onClick={() => addFunction(item,countNumber)}>Agregar</button>
+            <button className="product-detail__add" onClick={() => addFunction(item,countNumber)}>Agregar</button>
         </div>
     )
 }

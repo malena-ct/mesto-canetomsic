@@ -20,14 +20,30 @@ function CartContextProvider({children}) {
             cantidad: quantity
         }
 
-            setListaCarrito([...listaCarrito, itemAAgregar])
 
-        
-        console.log(listaCarrito)
+
+        const isInCart = (itemId) => {
+            if (listaCarrito.find(itemElement => itemElement.producto.id === itemId)){
+                console.log('Está en el carrito')
+                return true
+            } else {
+                console.log('No está')
+                return false
+            }
+        }
+
+        if(isInCart(itemElement.id) === false ) {
+            setListaCarrito([...listaCarrito, itemAAgregar])
+            console.log(listaCarrito)
+        }
+
     }
 
     const removeItem = (itemId) => {
 
+        const productosRestantes = listaCarrito.filter(itemElement => itemElement.producto.id !== itemId)
+        setListaCarrito(productosRestantes)
+        console.log(listaCarrito)
     }
 
     const clear = () => setListaCarrito([])
@@ -38,9 +54,6 @@ function CartContextProvider({children}) {
         {children}
         </CartContext.Provider>
     )
-
-    /*envolviendo el prop children en este elemento, entonces el contexto se le va a aplicar
-    a todo lo que esté "por dentro" del elemento, es decir a sus children */
 }
 
 export default CartContextProvider
