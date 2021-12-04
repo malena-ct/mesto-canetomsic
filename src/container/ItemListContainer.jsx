@@ -34,7 +34,7 @@ const ItemListContainer = () => {
                     //aceptado(ListadoProductos.slice(-5).reverse()) mostraría los últimos 5, en orden ascendente
                     //como para que tome los productos "más nuevos"
                 }
-            }, 2000);
+            }, 100);
     
         })
 
