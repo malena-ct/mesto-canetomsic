@@ -26,22 +26,6 @@
         flex-basis: 50%;
     }
 
-    &__add{
-        background-color: $brand-color-primary;
-        border: none;
-        color: white;
-        font-family: $brand-font;
-        display: block;
-        padding: 10px 15px 15px 15px;
-        font-size: 18px;
-        line-height: 18px;
-        margin-top: 30px;
-        cursor: pointer;
-        &:hover{
-            opacity: .8;
-        }
-    }
-
     &__title{
         font-size: 48px;
         color: $brand-color-primary;
