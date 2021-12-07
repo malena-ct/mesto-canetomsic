@@ -4,6 +4,9 @@ function ItemCount({countNumber,item,addFunction, itemCounter,setItemCounter}) {
 
 
     const addCounter = () => setItemCounter(itemCounter + 1)
+    const subCounter = () => {
+        if (itemCounter >= 1)setItemCounter(itemCounter - 1)
+        }
 
 
     let styles = {
@@ -12,6 +15,7 @@ function ItemCount({countNumber,item,addFunction, itemCounter,setItemCounter}) {
 
     return (
         <div style={styles}>
+            <button onClick={subCounter}>-</button>
             {countNumber=itemCounter}
             <button onClick={addCounter}>+</button>
 
