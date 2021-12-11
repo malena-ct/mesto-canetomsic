@@ -25,7 +25,7 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        const itemCollection = dataBase.collection('productos')
+        const itemCollection = dataBase.collection('productos').limit(10)
 
 
         if(categoryId){
