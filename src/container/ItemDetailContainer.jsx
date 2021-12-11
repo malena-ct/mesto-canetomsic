@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { ListadoProductos } from '../productos/ListadoProductos';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../components/ItemDetail/ItemDetail';
+import { dataBase } from '../firebase/firebase';
 
 const ItemDetailContainer = () => {
 
@@ -12,20 +12,26 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const promiseItemProducto = new Promise((resolved, rejected) => {
-            setTimeout(() => {
-                resolved(ListadoProductos.find(producto => producto.id == id))
-            }, 100);
-            
-        })
+        setLoading(true)
+        const itemCollection = dataBase.collection('productos')
+        const item = itemCollection.doc(id)
 
-        promiseItemProducto.then((productoEncontrado) => {
-            setItemProducto(productoEncontrado)
-        })
-        .catch((error) => {
-            console.log('Producto no encontrado')
-        })
-        .finally(() => setLoading(false))
+        console.log(item)
+        item.get()
+        .then( doc => 
+            {
+                if (!doc.exists){
+                    console.log('no existe');return;
+                }
+                setItemProducto({id:doc.id, ...doc.data()})
+            }
+        )
+        .catch(
+            error => console.log(error)
+        )
+        .finally(
+            setLoading(false)
+        )
     }, [id])
 
     

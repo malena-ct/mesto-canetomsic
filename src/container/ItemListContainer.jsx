@@ -2,8 +2,8 @@ import React from 'react'
 import Item from '../components/Item/Item';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ListadoProductos } from '../productos/ListadoProductos';
-
+// import { ListadoProductos } from '../productos/ListadoProductos';
+import { dataBase } from '../firebase/firebase';
 
 
 const ItemListContainer = () => {
@@ -25,26 +25,42 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        const getFetch = new Promise((aceptado, rechazado) => {
-            setTimeout(() => {
-                if(categoryId){
-                    aceptado(ListadoProductos.filter(prod => prod.category == categoryId ))
-                } else {
-                    aceptado(ListadoProductos.slice(0,5))
-                    //aceptado(ListadoProductos.slice(-5).reverse()) mostraría los últimos 5, en orden ascendente
-                    //como para que tome los productos "más nuevos"
-                }
-            }, 100);
-    
-        })
+        const itemCollection = dataBase.collection('productos')
 
-        getFetch.then((productoEncontrado) => {
-            setProductos(productoEncontrado)
-        })
-        .catch((error) => {
-            console.log('Error')
-        })
-        .finally(() => setLoading(false))
+
+        if(categoryId){
+            const categoryCollection = itemCollection.where('category', '==', categoryId).limit(10)
+            categoryCollection.get()
+            .then(
+                (querySnapshot) => {
+                    setProductos(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log('error searching items', error);
+                }
+            )
+            .finally(
+                () => setLoading(false)
+            )
+        } else {
+            itemCollection.get()
+            .then(
+                (querySnapshot) => {
+                    setProductos(querySnapshot.docs.map(doc => doc.data()))
+                }
+            )
+            .catch(
+                (error) => {
+                    console.log('error searching items', error);
+                }
+            )
+            .finally(
+                () => setLoading(false)
+            )
+        }
+
     }, [categoryId])
     
 
@@ -54,7 +70,7 @@ const ItemListContainer = () => {
             <div className="product-list--highlighted"> 
 
             {
-                loading ? <h2 className="loader-text">Cargando...</h2> : productos.map(prod => <Item item={prod} key={prod.key} />)
+                loading ? <h2 className="loader-text">Cargando...</h2> : productos.map(prod => <Item itemID={prod.id} item={prod} key={prod.data} >{console.log(prod)} </Item>)
                 
             }
 

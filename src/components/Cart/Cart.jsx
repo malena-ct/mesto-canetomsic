@@ -30,7 +30,7 @@ export default function Cart() {
                 {listaCarrito.map(productoEnCarrito => 
                 <div className='cart__product-wrapper' key={productoEnCarrito.producto.id}>
                     <div className="cart__img-wrapper">
-                        <img src={productoEnCarrito.producto.pictureUrl} alt={productoEnCarrito.producto.title} />
+                        <img src={productoEnCarrito.producto.pictureurl} alt={productoEnCarrito.producto.title} />
                     </div>
                     <div className="cart__product-data">
                         <h3>{productoEnCarrito.producto.title}</h3>
