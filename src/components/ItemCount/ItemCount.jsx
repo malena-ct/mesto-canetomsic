@@ -5,9 +5,8 @@ function ItemCount({countNumber,item,addFunction, itemCounter,setItemCounter}) {
 
     const addCounter = () => setItemCounter(itemCounter + 1)
     const subCounter = () => {
-        if (itemCounter >= 1)setItemCounter(itemCounter - 1)
-        }
-
+        if (itemCounter > 1)setItemCounter(itemCounter - 1)
+    }
 
     let styles = {
         paddingTop: '30px'
@@ -15,9 +14,9 @@ function ItemCount({countNumber,item,addFunction, itemCounter,setItemCounter}) {
 
     return (
         <div style={styles}>
-            <button onClick={subCounter}>-</button>
+            <button className='product-detail__counter' onClick={subCounter}>-</button>
             {countNumber=itemCounter}
-            <button onClick={addCounter}>+</button>
+            <button className='product-detail__counter' onClick={addCounter}>+</button>
 
             <button className="main-btn" onClick={() => addFunction(item,countNumber)}>Agregar</button>
         </div>

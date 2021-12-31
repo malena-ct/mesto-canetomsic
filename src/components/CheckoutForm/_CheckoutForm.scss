@@ -1,0 +1,43 @@
+.checkout-form{
+    &__title{
+        font-weight: 400;
+    }
+
+    &__form-group{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__label{
+        margin-right: 10px;
+        font-size: 16px;
+        flex-basis: 25%;
+    }
+
+    &__input{
+        flex-basis: 75%;
+        height: 32px;
+        .PhoneInputInput{
+            height: 32px;
+        }
+    }
+
+    &__auth-message{
+        margin-top: 30px;
+        font-size: 16px;
+        span{
+            cursor: pointer;
+            color: $brand-color-primary;
+            text-decoration: underline;
+        }
+    }
+
+    &__small-print{
+        font-size: 14px;
+        margin-top: 15px;
+        display: block;
+        opacity: .8;
+    }
+
+}

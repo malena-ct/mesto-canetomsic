@@ -53,7 +53,7 @@ const ItemListContainer = () => {
             <div className="product-list--highlighted"> 
 
             {
-                loading ? <h2 className="loader-text">Cargando...</h2> : productos.map(prod => <Item itemID={prod.id} item={prod} key={prod.data} >{console.log(prod)} </Item>)
+                loading ? <h2 className="loader-text">Cargando...</h2> : productos.map(prod => <Item itemID={prod.id} item={prod} key={prod.data} ></Item>)
                 
             }
 

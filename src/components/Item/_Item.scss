@@ -80,3 +80,33 @@
         }
     }
 }
+
+@media (max-width: 768px){
+    .product-item{
+        &__card{
+            flex-direction: column;
+        }
+
+        &__info-wrapper{
+            width: 100%;
+            padding-left: 0;
+        }
+
+        &__name{
+            font-size: 28px;
+            margin: 10px 0 10px 0;
+        }
+        &__description{
+            margin: 0 0 10px 0;
+            font-size: 16px
+        }
+
+        &__link{
+            margin: 10px 0 30px 0;
+        }
+
+        &__img-wrapper{
+            width: 100%;
+        }
+    }
+}

@@ -32,7 +32,42 @@
 
     }
 
+    &__counter{
+        color: $brand-color-primary;
+        background-color: white;
+        border: 1px solid $brand-color-primary;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+
+        &:first-of-type{
+            margin-right: 15px;
+        }
+        &:nth-child(2){
+            margin-left: 15px;
+
+        }
+
+        &:active{
+            border-width: 2px;
+        }
+    }
+
     &__price{
         font-size: 22px;
+    }
+    
+}
+
+@media (max-width: 768px){
+    .product-detail{
+        &__data{
+            display: block;
+            margin-bottom: 30px;
+        }
+        &__img-wrapper{
+            width: 100%;
+            margin: 0;
+        }
     }
 }

@@ -40,3 +40,24 @@
     }
 
 }
+
+@media (max-width: 768px){
+    .cart{
+        &__container{
+            align-items: flex-start;
+        }
+        &__product-wrapper{
+            align-items: flex-start;
+        }
+        &__img-wrapper{
+            margin-right: 10px;
+            width: 130px;
+            min-width: 130px;
+        }
+        &__product-data{
+            h3{
+                margin-top: 0;
+            }
+        }
+    }
+}

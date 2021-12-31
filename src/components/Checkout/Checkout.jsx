@@ -1,5 +1,5 @@
 import React from 'react'
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useCartContext } from '../../context/CartContext'
 import firebase from "firebase/app";
@@ -78,16 +78,11 @@ const Checkout = () => {
 
     }
 
-    let styles = {
-        display: "flex",
-    }
-
-
     return (
         <>
             {
                 pedidoRealizado === false ?
-                <div className='checkout__container' style={styles} >
+                <div className='checkout__container' >
                     <div className="checkout__breakdown-wrapper">
                         <CheckoutBreakdown/>
                     </div>
@@ -103,11 +98,15 @@ const Checkout = () => {
                     </div>
                 </div>
                 :
-                <>
-                <h1>{mensajePedido}</h1>
-                <p>Te enviaremos un e-mail a {user.email} con todos los datos para que realices el pago.</p>
-                <h2>ID del pedido: {idOrder}</h2>
-                </>
+                
+                <div className="checkout__state-message">
+                    <h1>{mensajePedido}</h1>
+                    <p>Te enviaremos un e-mail a {user.email} con todos los datos para que realices el pago.</p>
+                    <span>ID del pedido: {idOrder}</span>
+                    <NavLink className="main-btn" to="/">Seguir mirando</NavLink>
+                    
+                </div>
+                
             
             }
 

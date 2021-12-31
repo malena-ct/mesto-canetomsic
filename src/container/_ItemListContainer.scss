@@ -1,5 +1,5 @@
-.product-list{
-    &--highlighted{
+.product-list {
+    &--highlighted {
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -8,5 +8,13 @@
         max-width: 80%;
         left: 0;
         position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        &--highlighted {
+            max-width: 100%;
+        }
     }
 }
