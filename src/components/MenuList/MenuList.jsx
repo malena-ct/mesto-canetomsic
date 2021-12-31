@@ -2,17 +2,14 @@ import React from 'react'
 import ListItem from '../ListItem/ListItem'
 
 
-export default function MenuList() {
+export default function MenuList({estado, setEstado}) {
 
     
-    
+    const cerrarMenu = () => setEstado(false)
     
     return (
     <>
-        <div className="nav-toggler">
-            <img src="/img/icons/burger.svg" alt="Abrir menu" />
-        </div>
-        <ul className="navbar-nav" >
+        <ul onClick={cerrarMenu} className={estado === false ? 'navbar-nav' : 'navbar-nav open'}   >
             <ListItem item="Libros"/>
             <ListItem item="Recitales"/>
             <ListItem item="Teatro"/>
