@@ -3,14 +3,15 @@ import firebase from 'firebase/app'
 import "firebase/firestore"
 import 'firebase/auth';
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBFr-I1Nu89Uj8Xfxh1ytQ0Klct5tRCPAw",
+  apiKey: process.env.REACT_APP_WEBSITE_KEY,
   authDomain: "mesto-tienda.firebaseapp.com",
   databaseURL: "https://mesto-tienda-default-rtdb.firebaseio.com",
   projectId: "mesto-tienda",
   storageBucket: "mesto-tienda.appspot.com",
   messagingSenderId: "272081509188",
-  appId: "1:272081509188:web:7469279e17efdaee4c5511",
+  appId: process.env.REACT_ATT_FIREBASE_APPLICATION_ID,
   measurementId: "G-8C3SX17N8C"
 };
 

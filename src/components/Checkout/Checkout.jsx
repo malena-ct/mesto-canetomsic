@@ -51,6 +51,8 @@ const Checkout = () => {
 
         orden.total =  price()
 
+        orden.estado = "generada"
+
         orden.items = listaCarrito.map(item => {
             const id = item.producto.id
             const nombre = item.producto.title
