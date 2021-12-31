@@ -8,6 +8,8 @@ const ItemDetailContainer = () => {
 
     const [itemProducto, setItemProducto]= useState({});
     const [loading, setLoading] = useState(true);
+    const [productoExistente, setProductoExistente] = useState(true);    
+
 
     const { id } = useParams();
 
@@ -21,13 +23,18 @@ const ItemDetailContainer = () => {
         .then( doc => 
             {
                 if (!doc.exists){
-                    return;
+                    setProductoExistente(false)
+                } else {
+                    setItemProducto({id:doc.id, ...doc.data()})
                 }
-                setItemProducto({id:doc.id, ...doc.data()})
+               
+                
             }
         )
         .catch(
-            error => console.log(error)
+            (error) => {
+                console.log(error)
+            }
         )
         .finally(
             setLoading(false)
@@ -38,7 +45,11 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="container">
-           { loading ? <h2 className="loader-text">Cargando...</h2> : <ItemDetail item={itemProducto}/>}
+           { loading 
+           ? 
+           <h2 className="loader-text">Cargando...</h2> 
+           : 
+           <ItemDetail productoExiste={productoExistente} item={itemProducto}/>}
         </div>
     )
 }

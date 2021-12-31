@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom'
 import { useState } from 'react';
 import { useCartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
+import { NavLink } from 'react-router-dom'
 
-const ItemDetail = ({item}) => {
+
+const ItemDetail = ({item, productoExiste}) => {
     //contexto
     const { addItem, removeItem } = useCartContext()
 
@@ -24,7 +26,11 @@ const ItemDetail = ({item}) => {
 
     return (
         <div className="product-detail__detail">
-            <Link className="product-detail__category" to={`/category/${item.category}`}>Categoría: {item.category}</Link>
+            {
+                productoExiste
+                ?
+                <>
+                <Link className="product-detail__category" to={`/category/${item.category}`}>Categoría: {item.category}</Link>
                 <div className="product-detail__data">
                     <figure className="product-detail__img-wrapper">
                         <img src={item.pictureurl} alt={item.description} title={item.description} />
@@ -43,6 +49,15 @@ const ItemDetail = ({item}) => {
 
                     </div>
                 </div>
+                </>
+                :
+                <>
+                <h2>El producto no está disponible.</h2>
+                <NavLink className="main-btn" to="/">Explorar el sitio</NavLink>
+                </>
+                
+            }
+
         </div>
     )
 }

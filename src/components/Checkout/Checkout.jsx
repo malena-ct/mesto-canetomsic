@@ -64,7 +64,10 @@ const Checkout = () => {
         dataBase.collection('pedidos').add(orden)
         .then(resp => setIdOrder(resp.id))
         .catch(
-            setMensajePedido('El pedido no pudo procesarse. Intentá nuevamente más tarde')
+            () => {
+                setMensajePedido('El pedido no pudo procesarse. Intentá nuevamente más tarde')
+            }
+            
         )
         .finally(
             () => {

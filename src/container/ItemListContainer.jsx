@@ -37,7 +37,7 @@ const ItemListContainer = () => {
         )
         .catch(
             (error) => {
-                console.log('error searching items', error);
+                console.log(error)
             }
         )
         .finally(

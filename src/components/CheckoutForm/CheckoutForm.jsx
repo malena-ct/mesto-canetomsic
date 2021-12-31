@@ -31,7 +31,7 @@ const Checkout = ({tomarOrden, tomarNombreComprador, tomarApellidoComprador, tom
                     <input className="checkout-form__input" maxlength="50" required type="text" onChange={tomarApellidoComprador} name="apellido" />
                 </div>
                 <div className="checkout-form__form-group">
-                    <label className="checkout-form__label" for="telefono">Telefono</label>
+                    <label className="checkout-form__label" for="telefono">Teléfono</label>
                 
                     <PhoneInput className="checkout-form__input"
                     defaultCountry="AR"
