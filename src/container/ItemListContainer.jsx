@@ -2,7 +2,6 @@ import React from 'react'
 import Item from '../components/Item/Item';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { ListadoProductos } from '../productos/ListadoProductos';
 import { dataBase } from '../firebase/firebase';
 
 
@@ -25,41 +24,25 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
+
         const itemCollection = dataBase.collection('productos').limit(10)
 
+        const categoryCollection = categoryId ? itemCollection.where('category', '==', categoryId) : itemCollection;
 
-        if(categoryId){
-            const categoryCollection = itemCollection.where('category', '==', categoryId).limit(10)
-            categoryCollection.get()
-            .then(
-                (querySnapshot) => {
-                    setProductos(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
-                }
-            )
-            .catch(
-                (error) => {
-                    console.log('error searching items', error);
-                }
-            )
-            .finally(
-                () => setLoading(false)
-            )
-        } else {
-            itemCollection.get()
-            .then(
-                (querySnapshot) => {
-                    setProductos(querySnapshot.docs.map(doc => doc.data()))
-                }
-            )
-            .catch(
-                (error) => {
-                    console.log('error searching items', error);
-                }
-            )
-            .finally(
-                () => setLoading(false)
-            )
-        }
+        categoryCollection.get()
+        .then(
+            (querySnapshot) => {
+                setProductos(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+            }
+        )
+        .catch(
+            (error) => {
+                console.log('error searching items', error);
+            }
+        )
+        .finally(
+            () => setLoading(false)
+        )
 
     }, [categoryId])
     

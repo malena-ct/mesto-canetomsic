@@ -24,33 +24,34 @@ function CartContextProvider({children}) {
 
         const isInCart = (itemId) => {
             if (listaCarrito.find(itemElement => itemElement.producto.id === itemId)){
-                console.log('Está en el carrito')
                 return true
             } else {
-                console.log('No está')
                 return false
             }
         }
 
         if(isInCart(itemElement.id) === false ) {
             setListaCarrito([...listaCarrito, itemAAgregar])
-            console.log(listaCarrito)
         }
 
     }
+
+    const price = () => {
+        return listaCarrito.reduce((productosAcumulados,producto) => productosAcumulados + (producto.producto.price*producto.cantidad), 0)
+    }
+
 
     const removeItem = (itemId) => {
 
         const productosRestantes = listaCarrito.filter(itemElement => itemElement.producto.id !== itemId)
         setListaCarrito(productosRestantes)
-        console.log(listaCarrito)
     }
 
     const clear = () => setListaCarrito([])
 
 
     return(
-        <CartContext.Provider value={{listaCarrito, addItem, removeItem, clear }}>
+        <CartContext.Provider value={{listaCarrito, addItem, removeItem, clear, price}}>
         {children}
         </CartContext.Provider>
     )

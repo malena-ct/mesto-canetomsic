@@ -37,7 +37,7 @@ const ItemDetail = ({item}) => {
                             button === 'agregar' ?
                             <ItemCount item={item} itemCounter={count} setItemCounter={setCount} addFunction={onAdd} />
                             :
-                            <><button className="main-btn"><Link to="/Cart">Terminar Compra</Link></button><button onClick={() => removeItem(item.id)} className="main-btn">Quitar del carrito</button></>
+                            <><button className="main-btn"><Link to="/Cart">Ver Carrito</Link></button><button onClick={() => removeItem(item.id)} className="main-btn">Quitar del carrito</button></>
                             
                         }
 

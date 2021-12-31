@@ -11,7 +11,7 @@ export default function Cart() {
         listStyle: 'none'
     }
 
-    const {listaCarrito, removeItem, clear} = useCartContext()
+    const {listaCarrito, removeItem, clear, price} = useCartContext()
 
     return (
 
@@ -40,8 +40,10 @@ export default function Cart() {
                     </div>
                 </div>
                 )}
-                <h3 className="cart__total-price">Total: ${listaCarrito.reduce((productosAcumulados,producto) => productosAcumulados + (producto.producto.price*producto.cantidad), 0)}</h3>
+                <h3 className="cart__total-price">Total: ${price()}</h3>
+                <NavLink className="main-btn" to="/Checkout">Terminar de comprar</NavLink>
                 <button onClick={() => clear()} className="main-btn">Vaciar carrito</button>
+                
                 </>
             }
             </div>

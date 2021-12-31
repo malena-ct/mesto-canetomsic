@@ -13,15 +13,15 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
+
         const itemCollection = dataBase.collection('productos')
         const item = itemCollection.doc(id)
 
-        console.log(item)
         item.get()
         .then( doc => 
             {
                 if (!doc.exists){
-                    console.log('no existe');return;
+                    return;
                 }
                 setItemProducto({id:doc.id, ...doc.data()})
             }
