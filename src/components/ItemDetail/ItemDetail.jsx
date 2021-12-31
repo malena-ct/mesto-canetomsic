@@ -13,16 +13,24 @@ const ItemDetail = ({item, productoExiste}) => {
     //estado contador
     const [count, setCount] = useState(1)
 
-    //intercambio de los componentes onAdd
+    //intercambio de los componentes para agregar items o terminar la compra
     const [button, setButton] = useState('agregar')
     const terminarCompra = () => setButton('terminar') 
+    const agregarACompra = () => setButton('agregar') 
 
 
-
+    //
     function onAdd(item, cantidad){
         addItem(item, cantidad)
         terminarCompra()
     }
+
+
+    function onRemove(item){
+        removeItem(item.id)
+        agregarACompra()
+    }
+    
 
     return (
         <div className="product-detail__detail">
@@ -43,7 +51,7 @@ const ItemDetail = ({item, productoExiste}) => {
                             button === 'agregar' ?
                             <ItemCount item={item} itemCounter={count} setItemCounter={setCount} addFunction={onAdd} />
                             :
-                            <><button className="main-btn"><Link to="/Cart">Ver Carrito</Link></button><button onClick={() => removeItem(item.id)} className="main-btn">Quitar del carrito</button></>
+                            <><button className="main-btn"><Link to="/Cart">Ver Carrito</Link></button><button onClick={() => onRemove(item)} className="main-btn">Quitar del carrito</button></>
                             
                         }
 

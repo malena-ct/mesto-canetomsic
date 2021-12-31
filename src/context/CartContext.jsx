@@ -20,18 +20,27 @@ function CartContextProvider({children}) {
             cantidad: quantity
         }
 
-
-
         const isInCart = (itemId) => {
             if (listaCarrito.find(itemElement => itemElement.producto.id === itemId)){
-                return true
+                return itemId 
             } else {
                 return false
             }
         }
+        
 
         if(isInCart(itemElement.id) === false ) {
             setListaCarrito([...listaCarrito, itemAAgregar])
+        } else {
+            
+            const productoRepetido = listaCarrito.findIndex(productoSensado => productoSensado.producto.id === itemAAgregar.producto.id);
+            
+            const newArray = Array.from(listaCarrito)
+
+            listaCarrito[productoRepetido].cantidad += itemAAgregar.cantidad;
+            
+            setListaCarrito(newArray)
+
         }
 
     }
