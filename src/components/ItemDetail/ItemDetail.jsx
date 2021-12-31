@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import { useState } from 'react';
 import { useCartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
-import { NavLink } from 'react-router-dom'
 
 
 const ItemDetail = ({item, productoExiste}) => {
@@ -61,7 +60,7 @@ const ItemDetail = ({item, productoExiste}) => {
                 :
                 <>
                 <h2>El producto no está disponible.</h2>
-                <NavLink className="main-btn" to="/">Explorar el sitio</NavLink>
+                <Link className="main-btn" to="/">Explorar el sitio</Link>
                 </>
                 
             }

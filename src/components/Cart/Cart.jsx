@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import { useCartContext } from '../../context/CartContext'
 
@@ -33,7 +33,7 @@ export default function Cart() {
                         <img src={productoEnCarrito.producto.pictureurl} alt={productoEnCarrito.producto.title} />
                     </div>
                     <div className="cart__product-data">
-                        <h3>{productoEnCarrito.producto.title}</h3>
+                        <Link className="cart__product-link" to={`/item/${productoEnCarrito.producto.id}`}> <h3>{productoEnCarrito.producto.title}</h3></Link>
                         <p>Cantidad: {productoEnCarrito.cantidad}</p>
                         <span>Total: ${productoEnCarrito.producto.price*productoEnCarrito.cantidad}</span>
                         <button onClick={() => removeItem(productoEnCarrito.producto.id)} className="main-btn">Quitar del carrito</button>
@@ -41,7 +41,7 @@ export default function Cart() {
                 </div>
                 )}
                 <h3 className="cart__total-price">Total: ${price()}</h3>
-                <NavLink className="main-btn" to="/Checkout">Terminar de comprar</NavLink>
+                <Link className="main-btn" to="/Checkout">Terminar de comprar</Link>
                 <button onClick={() => clear()} className="main-btn">Vaciar carrito</button>
                 
                 </>

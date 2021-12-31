@@ -45,3 +45,16 @@ body{
 a.main-btn{
     display: inline-block;
 }
+
+.cart__product-link{
+
+    &:active,
+    &:visited,
+    &:focus{
+        color: $brand-color-primary;
+    }
+
+    &:hover{
+        text-decoration: none;
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useCartContext } from '../../context/CartContext'
 import firebase from "firebase/app";
@@ -106,7 +106,7 @@ const Checkout = () => {
                     <h1>{mensajePedido}</h1>
                     <p>Te enviaremos un e-mail a {user.email} con todos los datos para que realices el pago.</p>
                     <span>ID del pedido: {idOrder}</span>
-                    <NavLink className="main-btn" to="/">Seguir mirando</NavLink>
+                    <Link className="main-btn" to="/">Seguir mirando</Link>
                     
                 </div>
                 

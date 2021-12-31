@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCartContext } from '../../context/CartContext'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const CheckoutBreakdown = () => {
@@ -15,7 +15,7 @@ const CheckoutBreakdown = () => {
                 ?
                 <div className="checkout__state-message">
                     <h1>El carrito está vacío</h1>
-                    <NavLink className="main-btn" to="/">Explorar el sitio</NavLink>
+                    <Link className="main-btn" to="/">Explorar el sitio</Link>
                 </div>
                 :
                 
@@ -27,7 +27,7 @@ const CheckoutBreakdown = () => {
                             <img src={productoEnCarrito.producto.pictureurl} alt={productoEnCarrito.producto.title} />
                         </div>
                         <div className="cart__product-data">
-                            <h3>{productoEnCarrito.producto.title}</h3>
+                            <Link className="cart__product-link" to={`/item/${productoEnCarrito.producto.id}`}> <h3>{productoEnCarrito.producto.title}</h3></Link>
                             <p>Cantidad: {productoEnCarrito.cantidad}</p>
                             <span>Total: ${productoEnCarrito.producto.price*productoEnCarrito.cantidad}</span>
                         </div>
