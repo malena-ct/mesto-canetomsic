@@ -3,6 +3,7 @@ import Item from '../components/Item/Item';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { dataBase } from '../firebase/firebase';
+import Spinner from '../components/Spinner/Spinner';
 
 
 const ItemListContainer = () => {
@@ -48,16 +49,20 @@ const ItemListContainer = () => {
     
 
     return(
-        <div className="container" style={styles}>
+        <div className={loading ? 'container loading' : 'container'} style={styles}>
             
-            <div className="product-list--highlighted"> 
-
+            
             {
-                loading ? <h2 className="loader-text">Cargando...</h2> : productos.map(prod => <Item itemID={prod.id} item={prod} key={prod.data} ></Item>)
+                loading ? 
+                <Spinner/> 
+                : 
+                <div className="product-list--highlighted"> 
+                {productos.map(prod => <Item itemID={prod.id} item={prod} key={prod.data} ></Item>)}
+                </div>
                 
             }
 
-            </div>
+            
 
             
         </div>

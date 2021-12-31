@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../components/ItemDetail/ItemDetail';
 import { dataBase } from '../firebase/firebase';
+import Spinner from '../components/Spinner/Spinner';
+
 
 const ItemDetailContainer = () => {
 
@@ -44,10 +46,10 @@ const ItemDetailContainer = () => {
     
 
     return (
-        <div className="container">
+        <div className={loading ? 'container loading' : 'container'}>
            { loading 
            ? 
-           <h2 className="loader-text">Cargando...</h2> 
+           <Spinner/> 
            : 
            <ItemDetail productoExiste={productoExistente} item={itemProducto}/>}
         </div>

@@ -11,6 +11,15 @@ https://www.npmjs.com/package/react-phone-number-input
 
 Para validar el número de teléfono ingresado en el formulario de compra
 
+---
+
+react-spinners
+https://www.npmjs.com/package/react-spinners
+
+Es una librería de spinners para react, para darle dinamismo a la espera en caso de que haya un tiempo de respuesta un poco más alto.
+
+
+
 
 
 
